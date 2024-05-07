@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .main {
+            width: 200px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .row {
+            display: flex;
+            gap: 10px;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .content {
+            display: block;
+            width: 150px;
+            height: 24px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="text-3xl font-bold underline">Копировалка</h1>
+    <main class="main">
+        <div>
+            <span class="title">ИНН физлица</span>
+            <div class="row">
+                <div id="fl-inn" class="content"></div>
+                <button id="fl-inn-btn">📋</button>
+            </div>
+        </div>
+        <div>
+            <span class="title">ИНН юрика</span>
+            <div class="row">
+                <div id="ul-inn" class="content"></div>
+                <button id="ul-inn-btn">📋</button>
+            </div>
+        </div>
+        <div>
+            <span class="title">СНИЛС</span>
+            <div class="row">
+                <div id="snils" class="content"></div>
+                <button id="snils-btn">📋</button>
+            </div>
+        </div>
+    </main>
+    <script src="scripts.js"></script>
+</body>
+</html>
