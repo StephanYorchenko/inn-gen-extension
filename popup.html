@@ -24,33 +24,25 @@
             height: 24px;
             border: 1px solid black;
         }
+
+        .loadingSpinner {
+            transition: all 0.5s ease;
+            animation: rotate 1s linear infinite;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(360deg);
+            }
+        }
     </style>
 </head>
 <body>
-    <h1 class="text-3xl font-bold underline">Копировалка</h1>
+    <h1 class="text-3xl font-bold underline">Копировалка ??</h1>
     <main class="main">
-        <div>
-            <span class="title">ИНН физлица</span>
-            <div class="row">
-                <div id="fl-inn" class="content"></div>
-                <button id="fl-inn-btn">📋</button>
-            </div>
-        </div>
-        <div>
-            <span class="title">ИНН юрика</span>
-            <div class="row">
-                <div id="ul-inn" class="content"></div>
-                <button id="ul-inn-btn">📋</button>
-            </div>
-        </div>
-        <div>
-            <span class="title">СНИЛС</span>
-            <div class="row">
-                <div id="snils" class="content"></div>
-                <button id="snils-btn">📋</button>
-            </div>
-        </div>
     </main>
+
+
     <script src="scripts.js"></script>
 </body>
 </html>

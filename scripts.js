@@ -64,26 +64,58 @@ function generateULInn() {
   return result + control;
 }
 
-function copyFLInn() {
-  const inn = generateFLInn();
-  document.getElementById("fl-inn").innerHTML = inn;
-  navigator.clipboard.writeText(inn);
+function fromHTML(html, trim = true) {
+  html = trim ? html.trim() : html;
+  if (!html) return null;
+
+  const template = document.createElement('template');
+  template.innerHTML = html;
+  const result = template.content.children;
+
+  if (result.length === 1) return result[0];
+  return result;
 }
 
-function copyULInn() {
-  const inn = generateULInn();
-  document.getElementById("ul-inn").innerHTML = inn;
-  navigator.clipboard.writeText(inn);
+async function withLoader(generatorFn, inputId) {
+  const a = document.querySelector(`#${inputId}-btn`);
+  a.innerHTML = "<div class='loadingSpinner'>🔄</div>";
+  const result = await generatorFn();
+  a.innerHTML = "📋";
+  return result;
 }
 
-function copySnils() {
-  const snils = generateSnils();
-  document.getElementById("snils").innerHTML = snils;
-  navigator.clipboard.writeText(snils);
+function createCopyHandler(generatorFn, inputId) {
+  document.querySelector(`#${inputId}-btn`).addEventListener("click", async () => {
+    const value = await withLoader(generatorFn, inputId);
+    document.getElementById(inputId).innerHTML = value;
+    navigator.clipboard.writeText(value);
+  });
 }
 
-document.querySelector("#fl-inn-btn").addEventListener("click", copyFLInn);
-document.querySelector("#ul-inn-btn").addEventListener("click", copyULInn);
-document.querySelector("#snils-btn").addEventListener("click", copySnils);
+function createFormField(fieldId, fieldName)  {
+  const newFormField = fromHTML(`
+  <div>
+      <span class="title">${fieldName}</span>
+      <div class="row">
+          <div id="${fieldId}" class="content"></div>
+          <button id="${fieldId}-btn">📋</button>
+      </div>
+  </div>
+  `);
+
+  const mainComponent = document.querySelector(".main");
+  mainComponent.append(newFormField);
+}
+
+const config = [
+  { generator: generateFLInn, fieldId: "fl-inn", fieldName: "ИНН физа" },
+  { generator: generateULInn, fieldId: "ul-inn", fieldName: "ИНН юрика" },
+  { generator: generateSnils, fieldId: "snils", fieldName: "СНИЛС" },
+]
+
+config.forEach(({ generator, fieldId, fieldName }) => {
+  createFormField(fieldId, fieldName);
+  createCopyHandler(generator, fieldId);
+});
 
 
