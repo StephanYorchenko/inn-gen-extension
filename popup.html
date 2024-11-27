@@ -1,30 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
+    <link href="./output.css" rel="stylesheet">
     <title>Title</title>
     <style>
-        .main {
-            width: 200px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        .row {
-            display: flex;
-            gap: 10px;
-            flex-direction: row;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .content {
-            display: block;
-            width: 150px;
-            height: 24px;
-            border: 1px solid black;
-        }
-
         .loadingSpinner {
             transition: all 0.5s ease;
             animation: rotate 1s linear infinite;
@@ -38,11 +18,13 @@
     </style>
 </head>
 <body>
-    <h1 class="text-3xl font-bold underline">Копировалка</h1>
-    <main class="main">
-    </main>
-
-
+    <div class="overflow-auto p-8 bg-indigo-950">
+        <header class="text-3xl sm:text-4xl font-extrabold leading-none tracking-tight text-center mb-5">
+            <h1 class="bg-clip-text text-transparent bg-cyan-400">Копировалка</h1>
+        </header>
+        <main id="main" class="flex flex-col gap-y-4">
+        </main>
+    </div>
     <script src="scripts.js"></script>
 </body>
 </html>

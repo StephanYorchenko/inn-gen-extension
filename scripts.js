@@ -94,16 +94,16 @@ function createCopyHandler(generatorFn, inputId) {
 
 function createFormField(fieldId, fieldName)  {
   const newFormField = fromHTML(`
-  <div>
-      <span class="title">${fieldName}</span>
-      <div class="row">
-          <div id="${fieldId}" class="content"></div>
-          <button id="${fieldId}-btn">📋</button>
+  <div class="">
+      <span class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">${fieldName}</span>
+      <div class="flex justify-between">
+          <div id="${fieldId}" class="font-mono text-lg font-medium text-slate-900 dark:text-slate-200 rounded-md bg-indigo-500 w-[156px] p-1 mr-4"></div>
+          <button id="${fieldId}-btn" class="py-2 px-3 bg-indigo-500 text-white text-sm font-semibold rounded-md shadow focus:outline-none">📋</button>
       </div>
   </div>
   `);
 
-  const mainComponent = document.querySelector(".main");
+  const mainComponent = document.querySelector("#main");
   mainComponent.append(newFormField);
 }
 
