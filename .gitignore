@@ -1,1 +1,6 @@
 .idea/*
+build/*
+build.crx
+build.pem
+
+node_modules
