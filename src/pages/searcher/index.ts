@@ -1,0 +1,1 @@
+export { SearcherPage } from "./searcher-page";

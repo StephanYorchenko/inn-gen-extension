@@ -1,7 +1,7 @@
 import {Row} from "@/shared/ui/row";
 import {generateFLInn, generateSnils, generateULInn} from "./utils";
 
-export const Generator = () => {
+export const GeneratorPage = () => {
   return (
     <main class="block p-5">
       <div class="flex flex-col gap-2 justify-start">
