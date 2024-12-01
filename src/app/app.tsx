@@ -1,5 +1,5 @@
-import {Component, createSignal, Match, Switch} from 'solid-js';
-import {Generator} from "../pages/generator";
+import {Component, createSignal, Match, Switch} from "solid-js";
+import {Generator} from "@/pages/generator";
 
 type TRoutes = "generator" | "searcher";
 

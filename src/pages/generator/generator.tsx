@@ -1,4 +1,4 @@
-import {Row} from "./ui/row";
+import {Row} from "@/shared/ui/row";
 import {generateFLInn, generateSnils, generateULInn} from "./utils";
 
 export const Generator = () => {
