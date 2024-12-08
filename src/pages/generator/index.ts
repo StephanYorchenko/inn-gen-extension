@@ -1,1 +1,1 @@
-export { Generator } from "./generator"
+export { GeneratorPage } from "./generator-page"
