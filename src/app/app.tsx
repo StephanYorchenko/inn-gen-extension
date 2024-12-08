@@ -6,13 +6,13 @@ import {currentRoute} from "@/shared/routing";
 
 export const App: Component = () => {
   return (
-    <div class="bg-indigo-950 h-full">
-      <header class="w-full place-content-center flex">
+    <div class="bg-indigo-950 h-full py-5">
+      <header class="w-full place-content-center flex px-5">
         <span
           class="text-sky-400 text-3xl sm:text-4xl font-extrabold leading-none tracking-tight text-center mb-5">Копировалка для Сайры</span>
       </header>
       <Navigation />
-      <main class="block px-5 pb-5">
+      <main class="block py-5 px-5">
         <Switch fallback={<div>Нужный раздел не найден. Текущий: {currentRoute()}</div>}>
           <Match when={currentRoute() === "generator"}>
             <GeneratorPage/>
