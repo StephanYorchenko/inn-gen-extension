@@ -1,1 +1,1 @@
-export type TRoute = "generator" | "searcher";
+export type TRoute = "generator" | "searcher" | "settings";

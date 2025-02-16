@@ -1,5 +1,5 @@
 import {NavItem} from "./nav-item";
-import {FaSolidDice, FaSolidMagnifyingGlass} from "solid-icons/fa";
+import {FaSolidDice, FaSolidGear, FaSolidMagnifyingGlass} from "solid-icons/fa";
 
 export const Navigation = () => {
   return (
@@ -7,6 +7,7 @@ export const Navigation = () => {
       <ul class="flex flex-row flex-wrap -mb-px text-sm font-medium text-center text-gray-500 dark:text-gray-400">
         <NavItem text="Генератор" route="generator" icon={<FaSolidDice />}/>
         <NavItem text="Поисковик" route="searcher" icon={<FaSolidMagnifyingGlass />}/>
+        <NavItem text="Настройки" route="settings" icon={<FaSolidGear />}/>
       </ul>
     </nav>
 )

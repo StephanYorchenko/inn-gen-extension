@@ -6,7 +6,7 @@ type TProps = {
   generate: () => string;
 }
 
-export const Row = ({ fieldName, generate }: TProps) => {
+export const GenerateRow = ({ fieldName, generate }: TProps) => {
   const [value, setValue] = createSignal("");
 
   const handleClick = () => {

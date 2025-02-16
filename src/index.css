@@ -4,5 +4,9 @@
 
 #root {
     height: max-content;
-    width: 256px;
+    width: 420px;
+}
+
+details > summary::-webkit-details-marker {
+    display: none;
 }
