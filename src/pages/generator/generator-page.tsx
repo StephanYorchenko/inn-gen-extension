@@ -1,5 +1,5 @@
 import {GenerateRow} from "@/features/generate-row";
-import {generateFLInn, generateSnils, generateULInn} from "./utils";
+import {generateFLInn, generateSnils, generateULInn} from "../../shared/utils";
 
 export const GeneratorPage = () => {
   return (
