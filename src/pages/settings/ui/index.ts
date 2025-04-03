@@ -1,0 +1,1 @@
+export { DadataAuth } from "./dadata-auth";
