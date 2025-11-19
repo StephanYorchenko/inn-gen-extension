@@ -1,7 +1,7 @@
 # inn-gen-extension
 
 ## Гайд по установке
-1. Скачиваем архив с собранной [утиллитой](https://github.com/StephanYorchenko/inn-gen-extension/blob/master/build.zip)
+1. Скачиваем архив с собранной [утилитой](https://github.com/StephanYorchenko/inn-gen-extension/blob/master/build.zip)
 2. Распаковываем
 3. Переходим в список расширений в браузере (ввести в адресную строку chrome://extensions или browser://extensions );
 4. Включаем режим разработчика (в правом верхнем углу)
