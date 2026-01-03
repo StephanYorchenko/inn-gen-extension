@@ -1,6 +1,6 @@
 import {dadataToken} from "@/shared/stores";
 
-const url = "http://suggestions.dadata.ru/suggestions/api/4_1/rs/findById/party";
+const url = "http://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/party";
 
 const options = {
   method: "POST",
@@ -15,8 +15,12 @@ const headers =  {
 type TCompatyItem = {
   value: string;
   data: {
+    inn?: string;
     kpp?: string;
     branch_type: "MAIN" | "BRANCH";
+    name: {
+      short_with_opf?: string;
+    }
   }
 }
 
@@ -25,7 +29,6 @@ type TResponse = {
 }
 
 export async function fetchCompanyInfo(inn: string): Promise<TCompatyItem[]> {
-  if (inn.length !== 10 && inn.length !== 12) throw new Error("Введите ИНН организации");
   return await fetch(url, {
     ...options,
     headers: {
