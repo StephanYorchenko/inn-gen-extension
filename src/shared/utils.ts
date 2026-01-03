@@ -63,3 +63,40 @@ export function generateULInn() {
   ) % 11) % 10);
   return result + control;
 }
+
+/**
+ * Получить значение из объекта по пути в JSONPath-подобной нотации:
+ *  - "$.data.inn"
+ *  - "$.suggestions[0].data.name.full_with_opf"
+ *  - "data.inn" (тоже ок)
+ *
+ * Возвращает `undefined`, если путь не найден.
+ */
+export function getByPath<T = unknown>(
+  obj: unknown,
+  path: string,
+  fallback?: T
+): T | undefined {
+  if (obj == null) return fallback;
+
+  // Убираем ведущие "$." / "$"
+  const normalized = path.trim().replace(/^\$\./, "").replace(/^\$/, "");
+  if (!normalized) return (obj as T);
+
+
+  const tokens = normalized.match(/[^.[\]]+/g) ?? [];
+
+  let cur: any = obj;
+  for (const key of tokens) {
+    if (cur == null) return fallback;
+
+    const idx = Number(key);
+    if (!Number.isNaN(idx) && String(idx) === key) {
+      cur = cur[idx];
+    } else {
+      cur = cur[key];
+    }
+  }
+
+  return (cur === undefined ? fallback : (cur as T));
+}
